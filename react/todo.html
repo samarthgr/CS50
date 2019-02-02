@@ -43,7 +43,7 @@
                         const tasks = [...this.state.tasks];
                         tasks.splice(index, 1);
                         return {
-                            tasks: tasks
+                            tasks: tasks // INFO: if both key and value are same, you can use just 'tasks' insteard of 'tasks: tasks'
                         };
                     })
                 }

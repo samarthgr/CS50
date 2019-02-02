@@ -14,7 +14,7 @@
 * To delete something from the list
     ``` js
         const list1 = [1, 2, 3, 4, 5];
-        list.splice(3, 1);
+        list1.splice(3, 1);
 
         // list1 is now [1, 2, 3, 5]
     ```
