@@ -22,11 +22,11 @@
                 }
 
                 addTask = () => {
-                    this.setState(state => ({
+                    console.log("Task to add: " + this.state.input);
+                    this.setState((state) => ({
                         tasks: [...state.tasks, state.input],
                         input: ''
                     }));
-                    console.log(this.state.tasks);
                 }
 
                 handleChange = (event) => {
@@ -36,6 +36,17 @@
                     
                 }
 
+                removeTask = (index) => {
+                    console.log("Delete Task in index : " + index);
+                    this.setState(state => {
+                        const tasks = [...this.state.tasks];
+                        tasks.splice(index, 1);
+                        return {
+                            tasks: tasks
+                        };
+                    })
+                }
+
                 render() {
                     return (
                         <div>
@@ -43,6 +54,7 @@
                             <ul>
                                 {this.state.tasks.map((task, i) => (
                                     <li key={i}>
+                                        <button onClick={() => this.removeTask(i)}>delete</button>
                                         {task}    
                                     </li>)
                                 )}   
@@ -50,6 +62,9 @@
                             <div>
                                 <input onChange={this.handleChange} value={this.state.input}/>
                                 <button onClick={this.addTask}>Add Task</button>
+                            </div>
+                            <div>
+                                <p>You currently have {this.state.tasks.length} tasks </p>
                             </div>
                         </div>
                     );
