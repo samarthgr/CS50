@@ -36,7 +36,8 @@
                     
                 }
 
-                removeTask = (index) => {
+                removeTask = (event) => {
+                    const index = event.target.dataset.index;
                     console.log("Delete Task in index : " + index);
                     this.setState(state => {
                         const tasks = [...this.state.tasks];
@@ -54,7 +55,7 @@
                             <ul>
                                 {this.state.tasks.map((task, i) => (
                                     <li key={i}>
-                                        <button onClick={() => this.removeTask(i)}>delete</button>
+                                        <button data-index={i} onClick={this.removeTask}>delete</button>
                                         {task}    
                                     </li>)
                                 )}   
